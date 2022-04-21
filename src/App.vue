@@ -5,10 +5,10 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
-            Application2
+            Vuetify Todo
           </v-list-item-title>
           <v-list-item-subtitle>
-            subtext2
+            Best Todo Ever!
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -53,8 +53,7 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-      { title: 'Photos', icon: 'mdi-image' },
+      { title: 'Todo', icon: 'mdi-view-dashboard' },
       { title: 'About', icon: 'mdi-help-box' },
     ],
   }),
