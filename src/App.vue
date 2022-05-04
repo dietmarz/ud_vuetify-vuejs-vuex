@@ -47,7 +47,7 @@
         app
         color="primary"
         dark
-        src="https://picsum.photos/1920/1080?random"
+        src="mountains.jpg"
         prominent
     >
       <template v-slot:img="{ props }">
@@ -57,9 +57,9 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Title</v-app-bar-title>
+      <v-app-bar-title>Vuetify Todo</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
