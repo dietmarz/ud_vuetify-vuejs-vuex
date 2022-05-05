@@ -21,6 +21,14 @@
                   :class="{'text-decoration-line-through' : task.done}"
               >{{ task.title }}</v-list-item-title>
             </v-list-item-content>
+
+            <v-list-item-action>
+              <v-btn icon
+              @click.stop="deleteTask(task.id)">
+                <v-icon color="primary lighten-1">mdi-trash-can-outline</v-icon>
+              </v-btn>
+            </v-list-item-action>
+
           </template>
         </v-list-item>
         <v-divider></v-divider>
@@ -58,6 +66,9 @@
       doneTask(id) {
         let task = this.tasks.filter(task => task.id === id)[0]
         task.done = !task.done
+      },
+      deleteTask(id) {
+        this.tasks = this.tasks.filter(task => task.id !== id)
       }
     }
   }
