@@ -1,6 +1,18 @@
 <template>
   <div class="home">
 
+    <v-text-field
+        v-model="newTaskTitle"
+        @click:append="addTask"
+        @keyup.enter="addTask"
+        class="pa-3"
+        outlined
+        label="Add Task"
+        append-icon="mdi-plus"
+        hide-details
+        clearable
+    ></v-text-field>
+
     <v-list
         class="pt-0"
         flat
@@ -43,23 +55,8 @@
     name: 'Home',
     data() {
       return {
-        tasks: [
-          {
-            id: 1,
-            title: 'Wake up',
-            done: false
-          },
-          {
-            id: 2,
-            title: 'Get bananas',
-            done: false
-          },
-          {
-            id: 3,
-            title: 'Eat bananas',
-            done: false
-          }
-        ]
+        newTaskTitle: "",
+        tasks: []
       }
     },
     methods: {
@@ -69,6 +66,15 @@
       },
       deleteTask(id) {
         this.tasks = this.tasks.filter(task => task.id !== id)
+      },
+      addTask() {
+        let newTask = {
+          id: Date.now(),
+          title: this.newTaskTitle,
+          done: false
+        }
+        this.tasks.push(newTask)
+        this.newTaskTitle = ""
       }
     }
   }
