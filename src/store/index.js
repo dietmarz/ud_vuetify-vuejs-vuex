@@ -44,7 +44,7 @@ export default new Vuex.Store({
             }
             state.tasks.push(newTask)
         },
-        deleteTask(state, id) {
+        deleteTaskM(state, id) {
             state.tasks = state.tasks.filter(task => task.id !== id)
         },
         showSnackbar(state, text) {
@@ -56,8 +56,12 @@ export default new Vuex.Store({
         addTaskA({commit}, newTasktitle) {
             commit('addTaskM', newTasktitle);
             commit('showSnackbar', 'Adding: ' + newTasktitle);
+        },
+        deleteTaskA({commit}, id) {
+            let task = this.state.tasks.filter(task => task.id === id)[0]
+            commit('showSnackbar', 'Deleting: ' + task.title);
+            commit('deleteTaskM', id);
         }
-
     },
     modules: {}
 })
