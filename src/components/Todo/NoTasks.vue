@@ -7,15 +7,7 @@
     </v-icon>
     <div class="text-h5 primary--text ">No tasks</div>
   </div>
-
-
 </template>
-
-<script>
-export default {
-  name: "NoTasks"
-}
-</script>
 
 <style lang="sass">
 .no-tasks
