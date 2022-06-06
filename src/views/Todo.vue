@@ -37,7 +37,7 @@
 
             <v-list-item-action>
               <v-btn icon
-              @click.stop="deleteTask(task.id)">
+              @click.stop="$store.commit('deleteTask', task.id)">
                 <v-icon color="primary lighten-1">mdi-trash-can-outline</v-icon>
               </v-btn>
             </v-list-item-action>
@@ -77,9 +77,6 @@
       addTask() {
         this.$store.commit('addTask', this.newTaskTitle);
         this.newTaskTitle = '';
-      },
-      deleteTask(id) {
-        this.tasks = this.tasks.filter(task => task.id !== id)
       }
     }
   }
