@@ -22,7 +22,12 @@ export default new Vuex.Store({
                 done: false
             },
 
-        ]
+        ],
+        snackbar: {
+            show: false,
+            text: ''
+        }
+
     },
     getters: {},
     mutations: {
@@ -30,7 +35,8 @@ export default new Vuex.Store({
             let task = state.tasks.filter(task => task.id === id)[0]
             task.done = !task.done
         },
-        addTask(state, newTaskTitle) {
+        addTaskM(state, newTaskTitle) {
+            // You can't commit a mutation from within a mutation -> need an action
             let newTask = {
                 id: Date.now(),
                 title: newTaskTitle,
@@ -40,8 +46,18 @@ export default new Vuex.Store({
         },
         deleteTask(state, id) {
             state.tasks = state.tasks.filter(task => task.id !== id)
+        },
+        showSnackbar(state, text) {
+            state.snackbar.show = true;
+            state.snackbar.text = text;
         }
     },
-    actions: {},
+    actions: {
+        addTaskA({commit}, newTasktitle) {
+            commit('addTaskM', newTasktitle);
+            commit('showSnackbar', 'Adding: ' + newTasktitle);
+        }
+
+    },
     modules: {}
 })

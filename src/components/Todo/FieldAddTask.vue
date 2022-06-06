@@ -1,8 +1,8 @@
 <template>
   <v-text-field
       v-model="newTaskTitle"
-      @click:append="addTask()"
-      @keyup.enter="addTask()"
+      @click:append="addTaskC()"
+      @keyup.enter="addTaskC()"
       class="pa-3"
       outlined
       label="Add Task"
@@ -20,8 +20,8 @@ export default {
     }
   },
   methods: {
-    addTask() {
-      this.$store.commit('addTask', this.newTaskTitle);
+    addTaskC() {
+      this.$store.dispatch('addTaskA', this.newTaskTitle);
       this.newTaskTitle = '';
     }
   }
