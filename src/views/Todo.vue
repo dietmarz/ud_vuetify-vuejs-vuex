@@ -22,7 +22,7 @@
       <div v-for="task in $store.state.tasks"
            :key="task.id"
       >
-        <v-list-item @click="doneTask(task.id)"
+        <v-list-item @click="$store.commit('doneTask', task.id )"
                      :class="{'blue lighten-5' : task.done}"
         >
           <template>
@@ -74,10 +74,6 @@
       }
     },
     methods: {
-      doneTask(id) {
-        let task = this.tasks.filter(task => task.id === id)[0]
-        task.done = !task.done
-      },
       addTask() {
         this.$store.commit('addTask', this.newTaskTitle);
         this.newTaskTitle = '';

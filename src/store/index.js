@@ -27,6 +27,10 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
+    doneTask(state, id) {
+      let task = state.tasks.filter(task => task.id === id)[0]
+      task.done = !task.done
+    },
     addTask(state, newTaskTitle) {
       let newTask = {
         id: Date.now(),
