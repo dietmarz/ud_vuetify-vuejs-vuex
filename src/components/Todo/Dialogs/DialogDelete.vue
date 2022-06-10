@@ -19,9 +19,9 @@
           No
         </v-btn>
         <v-btn
+            @click="dialog = $store.dispatch('deleteTaskA', task.id)"
             color="primary darken-1"
             text
-            @click="dialog = false"
         >
           Yes
         </v-btn>
@@ -32,7 +32,8 @@
 
 <script>
 export default {
-  name: "DialogDelete.vue"
+  name: "DialogDelete.vue",
+  props: ['task']
 }
 </script>
 
