@@ -19,7 +19,10 @@
             <v-icon color="primary lighten-1">mdi-trash-can-outline</v-icon>
           </v-btn>
         </v-list-item-action>
-        <dialog-delete v-if="dialogs.delete" :task="task"/>
+        <dialog-delete
+            v-if="dialogs.delete"
+            @close="dialogs.delete = false"
+            :task="task"/>
       </template>
     </v-list-item>
     <v-divider></v-divider>
