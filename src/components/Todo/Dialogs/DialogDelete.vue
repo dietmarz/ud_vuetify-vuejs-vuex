@@ -19,7 +19,7 @@
           No
         </v-btn>
         <v-btn
-            @click="dialog = $store.dispatch('deleteTaskA', task.id)"
+            @click="$store.dispatch('deleteTaskA', task.id)"
             color="primary darken-1"
             text
         >
