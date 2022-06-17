@@ -10,14 +10,18 @@
         <v-list-item-content>
           <v-list-item-title
               :class="{'text-decoration-line-through' : task.done}"
-          >{{ task.title }}</v-list-item-title>
+          >{{ task.title }}
+          </v-list-item-title>
         </v-list-item-content>
 
         <v-list-item-action>
-          <v-btn icon
-                 @click.stop="dialogs.delete = true">
-            <v-icon color="primary lighten-1">mdi-trash-can-outline</v-icon>
-          </v-btn>
+          <task-menu/>
+
+
+          <!--          <v-btn icon-->
+          <!--                 @click.stop="dialogs.delete = true">-->
+          <!--            <v-icon color="primary lighten-1">mdi-trash-can-outline</v-icon>-->
+          <!--          </v-btn>-->
         </v-list-item-action>
         <dialog-delete
             v-if="dialogs.delete"
@@ -41,7 +45,8 @@ export default {
     }
   },
   components: {
-    'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default
+    'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default,
+    'task-menu': require('@/components/Todo/TaskMenu.vue').default
   }
 }
 </script>
