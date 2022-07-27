@@ -15,18 +15,10 @@
         </v-list-item-content>
 
         <v-list-item-action>
-          <task-menu/>
+          <task-menu :task="task"/>
 
-
-          <!--          <v-btn icon-->
-          <!--                 @click.stop="dialogs.delete = true">-->
-          <!--            <v-icon color="primary lighten-1">mdi-trash-can-outline</v-icon>-->
-          <!--          </v-btn>-->
         </v-list-item-action>
-        <dialog-delete
-            v-if="dialogs.delete"
-            @close="dialogs.delete = false"
-            :task="task"/>
+
       </template>
     </v-list-item>
     <v-divider></v-divider>
@@ -37,15 +29,7 @@
 <script>
 export default {
   props: ['task'],
-  data() {
-    return {
-      dialogs: {
-        delete: false
-      }
-    }
-  },
   components: {
-    'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default,
     'task-menu': require('@/components/Todo/TaskMenu.vue').default
   }
 }
